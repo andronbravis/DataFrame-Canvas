@@ -14,6 +14,18 @@ names = names[names['Name'] != 'alice']
 names_2.loc[2, 'Name'] = 'BOB'
 names_alias = names
 
+duplicate_columns = pd.DataFrame({
+    "text": pd.Series(["Alice", "Bob"], dtype="string"),
+    "number": pd.Series([10, 20], dtype="int64"),
+})
+duplicate_columns.columns = ["value", "value"]
+
+preview_test = pd.DataFrame({
+    "name": ["Alice", "Bob", "Cara", "Dan", "Eva", "Finn", "Gina", "Hugo", "Iris", "Jack", "Kate", "Leo"],
+    "age": [24, 31, 27, 35, 22, 29, 33, 26, 28, 40, 25, 32],
+    "score": [85, 72, 91, 64, 88, 79, 95, 81, 76, 90, 83, 87],
+})
+
 result = inspect_namespace(globals().copy())
 
 test_df = pd.DataFrame()
